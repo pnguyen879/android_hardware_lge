@@ -1,0 +1,22 @@
+/*
+ * SPDX-FileCopyrightText: The LineageOS Project
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+package vendor.lge.hardware.lgdata@1.1;
+
+import @1.0::ILgData;
+import @1.0::types;
+
+interface ILgData extends @1.0::ILgData {
+    iwlanSetRegisterCellularQualityReport_1_1(int32_t slotid, int32_t qualityRegister,
+                                              int32_t aType, vec<int32_t> aDataArray)
+            generates (int32_t result);
+    setEpdgHo(int32_t slotid, int32_t arg1, int32_t arg2, int32_t arg3)
+            generates (int32_t result);
+    allocatePduSessionId_1_1(int32_t slotid, string apn) generates (int32_t result);
+    freePduSessionId_1_1(int32_t slotid, string apn, uint32_t psi) generates (int32_t result);
+    setHandoffPduSessionId_1_1(int32_t slotid, string apn, uint32_t psi)
+            generates (int32_t result);
+    get5gPduInfo_1_1(int32_t slotid, string apn, string iface) generates (pdu_info_type info);
+};
