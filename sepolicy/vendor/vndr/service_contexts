@@ -1,0 +1,2 @@
+# Custom additions
+vendor.lge.hardware.dualscreen.IDualScreen/default              u:object_r:hal_lge_dualscreen_service:s0

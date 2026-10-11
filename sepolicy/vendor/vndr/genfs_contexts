@@ -2,6 +2,10 @@
 genfscon sysfs /devices/virtual/panel/brightness         u:object_r:vendor_sysfs_graphics:s0
 genfscon sysfs /devices/virtual/panel/panel-0/brightness u:object_r:vendor_sysfs_graphics:s0
 
+# Display (DualScreen)
+genfscon sysfs /devices/virtual/dualscreen/ds2        u:object_r:sysfs_lge_dualscreen:s0
+genfscon sysfs /devices/virtual/smartcover/smartcover u:object_r:sysfs_lge_smartcover:s0
+
 # Extcon
 genfscon sysfs /devices/platform/soc/171c0000.slim/tavil-slim-pgd/tavil_codec/extcon u:object_r:sysfs_extcon:s0
 genfscon sysfs /devices/platform/soc/890000.i2c/i2c-0/0-0034/extcon                  u:object_r:sysfs_extcon:s0

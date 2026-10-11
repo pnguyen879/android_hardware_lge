@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<display-settings>
+    <config identifier="1" />
+    <display
+        name="port:4"
+        isHomeSupported="true"
+        shouldShowSystemDecors="true"
+        shouldShowIme="false" />
+</display-settings>

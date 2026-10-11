@@ -1,0 +1,10 @@
+#
+# SPDX-FileCopyrightText: 2018 The Linux Foundation
+# SPDX-FileCopyrightText: The LineageOS Project
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
+# DualScreen key-layout-file
+key 115   VOLUME_UP
+key 114   VOLUME_DOWN
+key 358   ASSIST
