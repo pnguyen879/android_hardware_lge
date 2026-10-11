@@ -12,6 +12,7 @@
 
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks@1\.2-service-qti u:object_r:vendor_hal_neuralnetworks_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lge\.hardware\.dualscreen-service          u:object_r:hal_lge_dualscreen_default_exec:s0
 /(vendor|system/vendor)/bin/ppd                                                   u:object_r:vendor_hal_display_color_default_exec:s0
 /(vendor|system/vendor)/bin/qrtr-lookup                                           u:object_r:vendor_qrtr_exec:s0
 

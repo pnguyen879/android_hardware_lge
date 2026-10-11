@@ -1,0 +1,48 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "vendor.lge.hardware.dualscreen-service",
+    vendor: true,
+    relative_install_path: "hw",
+    init_rc: ["vendor.lge.hardware.dualscreen-service.rc"],
+    vintf_fragments: ["vendor.lge.hardware.dualscreen-service.xml"],
+    srcs: [
+        "DualScreen.cpp",
+        "Protocol.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "libcutils",
+        "liblog",
+        "vendor.lge.hardware.dualscreen-V1-ndk",
+    ],
+    required: [
+        "Vendor_1004_Product_637a.idc",
+        "Vendor_1004_Product_637a.kl",
+        "display_settings.xml",
+    ],
+}
+
+prebuilt_usr_idc {
+    name: "Vendor_1004_Product_637a.idc",
+    src: "Vendor_1004_Product_637a.idc",
+    vendor: true,
+}
+
+prebuilt_usr_keylayout {
+    name: "Vendor_1004_Product_637a.kl",
+    src: "Vendor_1004_Product_637a.kl",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "display_settings.xml",
+    src: "display_settings.xml",
+    filename: "display_settings.xml",
+    vendor: true,
+}
