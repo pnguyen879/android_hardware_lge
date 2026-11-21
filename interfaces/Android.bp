@@ -2,3 +2,29 @@ hidl_package_root {
     name: "vendor.lge",
     path: "hardware/lge/interfaces/lge",
 }
+
+aidl_interface {
+    name: "vendor.lge.hardware.dac",
+    system_ext_specific: true,
+    vendor_available: true,
+    local_include_dir: "aidl",
+    srcs: ["aidl/vendor/lge/hardware/dac/*.aidl"],
+    stability: "vintf",
+    owner: "lge",
+
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            enabled: true,
+        },
+    },
+    frozen: true,
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+}
