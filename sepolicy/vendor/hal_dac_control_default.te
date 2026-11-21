@@ -9,6 +9,9 @@ binder_call(hal_dac_control_default, hal_audio_default)
 
 allow hal_dac_control_default hal_audio_hwservice:hwservice_manager find;
 
+binder_call(hal_dac_control_default, audioserver)
+allow hal_dac_control_default audioserver_service:service_manager find;
+
 allow hal_dac_control_default sysfs_dac:dir r_dir_perms;
 allow hal_dac_control_default sysfs_dac:file { rw_file_perms open getattr };
 allow hal_dac_control_default sysfs_dac:lnk_file read;

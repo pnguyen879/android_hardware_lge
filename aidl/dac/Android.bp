@@ -1,0 +1,36 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_defaults {
+    name: "lge_dac_defaults",
+    vendor: true,
+    relative_install_path: "hw",
+    vintf_fragments: ["vendor.lge.hardware.dac-service.xml"],
+    srcs: [
+        "DacControl.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libaudioclient",
+        "libbase",
+        "libbinder_ndk",
+        "libcutils",
+        "libutils",
+        "vendor.lge.hardware.dac-V2-ndk",
+    ],
+}
+
+cc_binary {
+    name: "vendor.lge.hardware.dac-service",
+    init_rc: ["vendor.lge.hardware.dac-service.rc"],
+    defaults: ["lge_dac_defaults"],
+}
+
+cc_binary {
+    name: "vendor.lge.hardware.dac-service.proprietary",
+    init_rc: ["vendor.lge.hardware.dac-service.proprietary.rc"],
+    defaults: ["lge_dac_defaults"],
+    cflags: ["-DPROPRIETARY_AUDIO_MODULE"],
+}
