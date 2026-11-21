@@ -2,13 +2,14 @@ package org.lineageos.settings.device.dac.utils;
 
 import android.media.AudioSystem;
 import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.SystemProperties;
 
 import java.util.ArrayList;
 
-import vendor.lge.hardware.audio.dac.control.V2_0.Feature;
-import vendor.lge.hardware.audio.dac.control.V2_0.FeatureStates;
-import vendor.lge.hardware.audio.dac.control.V2_0.IDacControl;
+import vendor.lge.hardware.dac.Feature;
+import vendor.lge.hardware.dac.FeatureStates;
+import vendor.lge.hardware.dac.IDac;
 
 public class QuadDAC {
 
@@ -16,15 +17,16 @@ public class QuadDAC {
 
     public QuadDAC() {}
 
-    private static IDacControl dac;
+    private static IDac dac;
 
     private static ArrayList<Integer> dac_features;
 
     public static boolean dac_service_available = false;
 
     public static void initialize() throws RemoteException {
-        dac = IDacControl.getService(true);
-        dac_features = dac.getSupportedFeatures();
+        dac = IDac.Stub.asInterface(ServiceManager.waitForService(IDac.DESCRIPTOR + "/default"));
+        dac_features = new ArrayList<>();
+        for (int feature : dac.getSupportedFeatures()) dac_features.add(feature);
         dac_service_available = true;
     }
 

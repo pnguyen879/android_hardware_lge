@@ -21,8 +21,8 @@ import org.lineageos.settings.device.dac.utils.QuadDAC;
 
 import java.util.Map;
 
-import vendor.lge.hardware.audio.dac.control.V2_0.FeatureStates;
-import vendor.lge.hardware.audio.dac.control.V2_0.Feature;
+import vendor.lge.hardware.dac.FeatureStates;
+import vendor.lge.hardware.dac.Feature;
 
 public class BalancePreference extends Preference {
 

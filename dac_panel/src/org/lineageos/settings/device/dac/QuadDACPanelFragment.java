@@ -26,9 +26,9 @@ import org.lineageos.settings.device.dac.utils.QuadDAC;
 
 import java.util.ArrayList;
 
-import vendor.lge.hardware.audio.dac.control.V2_0.Feature;
-import vendor.lge.hardware.audio.dac.control.V2_0.IDacControl;
-import vendor.lge.hardware.audio.dac.control.V2_0.Range;
+import vendor.lge.hardware.dac.Feature;
+import vendor.lge.hardware.dac.IDac;
+import vendor.lge.hardware.dac.Range;
 
 public class QuadDACPanelFragment extends PreferenceFragment
         implements OnPreferenceChangeListener {
@@ -55,7 +55,7 @@ public class QuadDACPanelFragment extends PreferenceFragment
 
     private HeadsetPluggedFragmentReceiver headsetPluggedFragmentReceiver;
 
-    private IDacControl dac;
+    private IDac dac;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -387,6 +387,6 @@ public class QuadDACPanelFragment extends PreferenceFragment
         }
     }
 
-    public IDacControl getDhc() { return dac; }
+    public IDac getDhc() { return dac; }
 
 }
