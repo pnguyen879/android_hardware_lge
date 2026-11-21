@@ -10,4 +10,3 @@ vendor.nxp.nxpnfc::INxpNfc                                              u:object
 vendor.nxp.nxpese::INxpEse                                              u:object_r:hal_nfc_hwservice:s0
 
 # Custom additions
-vendor.lge.hardware.audio.dac.control::IDacControl                  u:object_r:hal_dac_control_hwservice:s0
