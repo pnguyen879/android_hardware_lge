@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
+<androidx.preference.PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    android:title="@strings/quad_dac">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="@string/sp_hifi_quad_mode_title">
 
-    <SwitchPreference
+    <androidx.preference.SwitchPreferenceCompat
         app:key="quaddac_switch"
-        app:summaryOn="@string/quad_dac_on"
-        app:summaryOff="@string/quad_dac_off"
-        app:title="@string/quad_dac"
+        app:title="@string/sp_hifi_quad_mode_title"
+        app:summary="@string/sound_quality_hifi_summary"
         app:isPreferenceVisible="false" />
 
-    <PreferenceCategory
+    <androidx.preference.PreferenceCategory
         app:title="@string/quad_dac_settings" >
 
-        <ListPreference
+        <androidx.preference.ListPreference
             app:key="hifi_mode_dropdown"
-            app:title="@string/hifi_mode"
-            app:summary="%s"
+            app:title="@string/sp_hifi_mode_title"
+            app:useSimpleSummaryProvider="true"
             app:entries="@array/hifi_mode_entry_values"
             app:entryValues="@array/hifi_mode_entry_values"
             app:isPreferenceVisible="false" />
 
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="avc_volume_seekbar"
             app:title="@string/avc_volume"
             app:summary="@string/avc_volume_summary"
@@ -32,145 +31,148 @@
             app:defaultValue="-14"
             app:isPreferenceVisible="false" />
 
-        <ListPreference
+        <androidx.preference.ListPreference
             app:key="sound_preset_dropdown"
-            app:title="@string/sound_preset"
-            app:summary="%s"
+            app:title="@string/sp_hifi_sound_preset_title"
+            app:useSimpleSummaryProvider="true"
             app:entries="@array/sound_preset_entry_values"
             app:entryValues="@array/sound_preset_entry_values"
             app:isPreferenceVisible="false" />
 
-        <ListPreference
+        <androidx.preference.ListPreference
             app:key="digital_filter_dropdown"
-            app:title="@string/digital_filter"
-            app:summary="%s"
+            app:title="@string/sp_hifi_digital_filter_title"
             app:entries="@array/digital_filter_entry_values"
             app:entryValues="@array/digital_filter_entry_values"
             app:isPreferenceVisible="false" />
 
-    </PreferenceCategory>
+    </androidx.preference.PreferenceCategory>
 
     <!-- Customizable filter category -->
-    <PreferenceCategory
-        app:title="@string/customizable_filter_settings">
+    <androidx.preference.PreferenceCategory
+        app:key="custom_filter_settings_category"
+        app:title="@string/customizable_filter_settings"
+        app:isPreferenceVisible="false">
 
-        <ListPreference
+        <androidx.preference.ListPreference
             app:key="custom_filter_shape"
             app:title="@string/cf_shape"
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:entries="@array/custom_filter_shapes"
             app:entryValues="@array/custom_filter_shapes" />
 
-        <ListPreference
+        <androidx.preference.ListPreference
             app:key="custom_filter_symmetry"
             app:title="@string/cf_symmetry"
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:entries="@array/custom_filter_symmetries"
             app:entryValues="@array/custom_filter_symmetries" />
 
-    </PreferenceCategory>
+    </androidx.preference.PreferenceCategory>
 
     <!-- These ones really need their own category to keep things more organized -->
-    <PreferenceCategory
+    <androidx.preference.PreferenceCategory
+        app:key="custom_filter_coeffs_category"
         app:title="@string/customizable_filter_coeffs"
+        app:isPreferenceVisible="false"
         app:summary="@string/customizable_filter_coeffs_summary">
 
         <!-- Tons of coefficient seekbars BEGIN -->
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff0"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff1"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff2"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff3"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff4"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff5"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff6"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff7"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff8"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff9"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff10"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff11"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff12"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-        <SeekBarPreference
+        <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff13"
             app:title=""
-            app:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
@@ -182,9 +184,9 @@
             android:summary=""
             android:title="" />
 
-    </PreferenceCategory>
+    </androidx.preference.PreferenceCategory>
 
-    <PreferenceCategory
+    <androidx.preference.PreferenceCategory
         app:title="@string/quad_dac_balance" >
 
         <org.lineageos.settings.device.dac.ui.BalancePreference
@@ -193,6 +195,6 @@
             app:title=""
             app:isPreferenceVisible="false" />
 
-    </PreferenceCategory>
+    </androidx.preference.PreferenceCategory>
 
-</PreferenceScreen>
+</androidx.preference.PreferenceScreen>

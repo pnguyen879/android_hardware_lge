@@ -1,32 +1,38 @@
 <resources>
-    <string name="summary_empty" translatable="false"></string>
+    <string name="quad_dac_app_name">Hi-Fi Quad DAC</string>
 
-    <string name="quad_dac_app_name">Quad DAC Panel</string>
-
-    <string name="quad_dac">Hi-Fi Quad DAC</string>
-    <string name="quad_dac_on">Quad DAC on</string>
-    <string name="quad_dac_off">Quad DAC off</string>
+    <string name="sp_hifi_quad_mode_title">Hi-Fi Quad DAC</string>
     <string name="quad_dac_unavail">Quad DAC unavailable</string>
+    <string name="sound_quality_hifi_summary">Optimize audio quality to be close to the original</string>
 
     <string name="quad_dac_settings">Quad DAC Settings</string>
 
     <string name="quad_dac_balance">Balance</string>
     <string name="quad_dac_balance_summary">Change the Left/Right balance</string>
+    <string name="balance_left">Left</string>
+    <string name="balance_right">Right</string>
+    <string name="balance_value_db">%1$.1f dB</string>
+    <string name="reset_filter_coefficients">Reset Filter Coefficients</string>
+    <string name="coefficient_summary">Coefficient %1$d: 0.%2$d</string>
 
-    <string name="sound_preset">Sound preset</string>
+    <string name="sp_hifi_sound_preset_title">Sound preset</string>
 
-    <string name="sound_preset_normal">Normal</string>
-    <string name="sound_preset_enhanced">Enhanced</string>
-    <string name="sound_preset_detailed">Detailed</string>
-    <string name="sound_preset_live">Live</string>
-    <string name="sound_preset_bass">Bass</string>
+    <string name="sp_hifi_sound_preset_normal">Normal</string>
+    <string name="sp_hifi_sound_preset_enhanced">Enhanced</string>
+    <string name="sp_hifi_sound_preset_detailed">Detailed</string>
+    <string name="sp_hifi_sound_preset_live">Live</string>
+    <string name="sp_hifi_sound_preset_bass">Bass</string>
 
-    <string name="digital_filter">Digital filter</string>
+    <string name="sp_hifi_digital_filter_title">Digital filter</string>
 
-    <string name="digital_filter_0">Short</string>
-    <string name="digital_filter_1">Sharp</string>
-    <string name="digital_filter_2">Slow</string>
+    <string name="sp_hifi_digital_filter_short">Short</string>
+    <string name="sp_hifi_digital_filter_sharp">Sharp</string>
+    <string name="sp_hifi_digital_filter_slow">Slow</string>
     <string name="digital_filter_3">Customizable Filter</string>
+    <string name="sp_hifi_digital_filter_description">Select a filter to change the sound characteristics. This changes the pre and post-ringing of the impulse response shown below.</string>
+    <string name="sp_hifi_digital_filter_short_summary">Produces a more spatial sound that is brought forward</string>
+    <string name="sp_hifi_digital_filter_sharp_summary">Produces a more natural sound</string>
+    <string name="sp_hifi_digital_filter_slow_summary">Produces a clearer sound</string>
 
     <string name="customizable_filter_settings">Customizable Filter Settings</string>
 
@@ -48,7 +54,7 @@
     <string name="customizable_filter_coeffs">Customizable Filter Coefficients</string>
     <string name="customizable_filter_coeffs_summary">NOTE: If all coefficients are 0, audio will be muted</string>
 
-    <string name="hifi_mode">HiFi mode</string>
+    <string name="sp_hifi_mode_title">32 bit Hi-Fi DAC</string>
 
     <string name="hifi_mode_normal">Normal</string>
     <string name="hifi_mode_him">High Impedance</string>

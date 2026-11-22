@@ -19,7 +19,7 @@ android_app {
     defaults: [
         "SettingsLibDefaults",
     ],
-    srcs: ["src/**/*.java"],
+    srcs: ["src/**/*.kt"],
     resource_dirs: ["res"],
     certificate: "platform",
     privileged: true,
@@ -27,9 +27,12 @@ android_app {
     system_ext_specific: true,
 
     static_libs: [
-        "vendor.lge.hardware.audio.dac.control-V2.0-java",
+        "vendor.lge.hardware.dac-V1-java",
         "androidx.core_core",
+        "androidx.appcompat_appcompat",
         "androidx.preference_preference",
+        "SettingsLibSliderPreference",
+        "kotlin-stdlib",
     ],
 
     optimize: {
