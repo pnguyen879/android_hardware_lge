@@ -1,0 +1,41 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+soong_config_module_type {
+    name: "lge_dac_cc_binary",
+    module_type: "cc_binary",
+    config_namespace: "lge_dac",
+    bool_variables: ["proprietary_audio_module"],
+    properties: ["cflags"],
+}
+
+lge_dac_cc_binary {
+    name: "vendor.lge.hardware.dac-service",
+    vintf_fragments: ["vendor.lge.hardware.dac-service.xml"],
+    init_rc: ["vendor.lge.hardware.dac-service.rc"],
+    relative_install_path: "hw",
+    srcs: [
+        "DacControl.cpp",
+        "service.cpp",
+    ],
+    vendor: true,
+    shared_libs: [
+        "libbase",
+        "libbinder",
+        "libbinder_ndk",
+        "libcutils",
+        "libhidlbase",
+        "libutils",
+        "android.hardware.audio@5.0",
+        "android.hardware.audio@6.0",
+        "android.hardware.audio@7.0",
+        "vendor.lge.hardware.dac-V1-ndk",
+    ],
+    soong_config_variables: {
+        proprietary_audio_module: {
+            cflags: ["-DPROPRIETARY_AUDIO_MODULE"],
+        },
+    },
+}

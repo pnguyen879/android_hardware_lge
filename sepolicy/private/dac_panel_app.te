@@ -23,6 +23,8 @@ allow dac_panel_app {
 }:service_manager find;
 
 allow dac_panel_app hal_dac_control_hwservice:hwservice_manager find;
+allow dac_panel_app hal_dac_service:service_manager find;
+binder_call(dac_panel_app, hal_dac_default)
 
 allow dac_panel_app cgroup:file w_file_perms;
 

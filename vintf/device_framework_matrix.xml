@@ -15,6 +15,14 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.lge.hardware.dac</name>
+        <version>1</version>
+        <interface>
+            <name>IDac</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.lge.hardware.lgdata</name>
         <version>1.1</version>
