@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
 <androidx.preference.PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -48,7 +52,7 @@
 
     </androidx.preference.PreferenceCategory>
 
-    <!-- Customizable filter category -->
+    <!-- Filter-shape and symmetry options for the custom response. -->
     <androidx.preference.PreferenceCategory
         app:key="custom_filter_settings_category"
         app:title="@string/customizable_filter_settings"
@@ -70,14 +74,13 @@
 
     </androidx.preference.PreferenceCategory>
 
-    <!-- These ones really need their own category to keep things more organized -->
+    <!-- Keep coefficient controls grouped separately from filter selection. -->
     <androidx.preference.PreferenceCategory
         app:key="custom_filter_coeffs_category"
         app:title="@string/customizable_filter_coeffs"
         app:isPreferenceVisible="false"
         app:summary="@string/customizable_filter_coeffs_summary">
 
-        <!-- Tons of coefficient seekbars BEGIN -->
         <com.android.settingslib.widget.SliderPreference
             app:key="custom_filter_coeff0"
             app:title=""
@@ -176,8 +179,6 @@
             app:min="-9999999"
             android:max="9999999"
             app:defaultValue="0" />
-
-        <!-- Tons of coefficient seekbars END -->
 
         <org.lineageos.settings.device.dac.ui.ButtonPreference
             android:key="reset_coefficients"

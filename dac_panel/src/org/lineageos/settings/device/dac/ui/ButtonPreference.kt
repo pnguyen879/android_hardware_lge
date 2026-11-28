@@ -7,9 +7,9 @@ package org.lineageos.settings.device.dac.ui
 
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.Button
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
+import com.google.android.material.button.MaterialButton
 import org.lineageos.settings.device.dac.QuadDACPanelFragment
 import org.lineageos.settings.device.dac.R
 import org.lineageos.settings.device.dac.utils.QuadDAC
@@ -21,7 +21,7 @@ class ButtonPreference(
     defStyleRes: Int,
 ) : Preference(context, attrs, defStyleAttr, defStyleRes) {
 
-    private lateinit var reset_button: Button
+    private lateinit var reset_button: MaterialButton
 
     init {
         layoutResource = R.layout.button_preference
@@ -41,7 +41,7 @@ class ButtonPreference(
         super.onBindViewHolder(holder)
         holder.itemView.isClickable = false
 
-        reset_button = holder.findViewById(R.id.reset_coefficients) as Button
+        reset_button = holder.findViewById(R.id.reset_coefficients) as MaterialButton
         reset_button.isClickable = true
 
         reset_button.setOnClickListener { resetCoefficients() }

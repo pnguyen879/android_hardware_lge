@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -27,8 +31,9 @@
             android:paddingRight="20dp"
             android:orientation="vertical" >
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/reset_coefficients"
+                style="@style/Widget.QuadDAC.Button.Filled"
                 android:text="@string/reset_filter_coefficients"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -44,13 +44,11 @@ object QuadDAC {
             setAVCVolume(avc_vol)
             setDigitalFilter(digital_filter)
 
-            // Sound presets are disabled on the open-source audio HAL.
             if (dac_features.contains(Feature.SoundPreset)) {
                 val sound_preset = getSoundPreset()
                 setSoundPreset(sound_preset)
             }
 
-            // Kernel-side implementation needed for custom filters
             if (dac_features.contains(Feature.CustomFilter)) {
                 val custom_filter_shape = getCustomFilterShape()
                 val custom_filter_symmetry = getCustomFilterSymmetry()
@@ -103,11 +101,7 @@ object QuadDAC {
     fun setDigitalFilter(filter: Int) {
         dac.setFeatureValue(Feature.DigitalFilter, filter)
         if (dac_features.contains(Feature.CustomFilter) && filter == 3) {
-            /*
-             * If it's a custom filter, we need to apply its settings. Any of the functions
-             * below should suffice since it'll load all settings from memory by parsing its
-             * data.
-             */
+            // Reapply stored filter data so it becomes active in the kernel.
             setCustomFilterShape(getCustomFilterShape())
         }
     }

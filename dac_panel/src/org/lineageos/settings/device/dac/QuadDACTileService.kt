@@ -77,7 +77,7 @@ class QuadDACTileService : TileService() {
             if (intent.action == Intent.ACTION_HEADSET_PLUG) {
                 val state = intent.getIntExtra("state", -1)
                 when (state) {
-                    1 -> { // Headset plugged in
+                    1 -> {
                         try {
                             if (DacControlInterface.isEnabled()) {
                                 setTileActive()
@@ -86,7 +86,7 @@ class QuadDACTileService : TileService() {
                             }
                         } catch (e: Exception) {}
                     }
-                    0 -> { // Headset unplugged
+                    0 -> {
                         setTileUnavailable()
                     }
                     else -> {}

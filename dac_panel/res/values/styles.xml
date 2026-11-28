@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014-2017 The OmniROM Project
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-    http://www.apache.org/licenses/LICENSE-2.0
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+<!--
+    SPDX-FileCopyrightText: The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
     <style name="PreferenceTheme" parent="@style/PreferenceThemeOverlay.SettingsBase">
+    </style>
+
+    <style name="Theme.QuadDAC.Material3Expressive" parent="@style/Theme.Material3Expressive.DayNight">
+        <item name="colorPrimary">?android:attr/colorPrimary</item>
+        <item name="colorOnPrimary">?android:attr/textColorPrimaryInverse</item>
+        <item name="colorOnSurface">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Widget.QuadDAC.Slider.Small" parent="@style/Widget.Material3Expressive.Slider.Small">
+        <item name="materialThemeOverlay">@style/Theme.QuadDAC.Material3Expressive</item>
+        <item name="trackColorActive">?android:attr/colorPrimary</item>
+        <item name="trackColorInactive">?android:attr/colorControlHighlight</item>
+        <item name="thumbColor">?android:attr/colorPrimary</item>
+    </style>
+
+    <style name="Widget.QuadDAC.Button.Filled" parent="@style/Widget.Material3Expressive.Button">
+        <item name="materialThemeOverlay">@style/Theme.QuadDAC.Material3Expressive</item>
     </style>
 </resources>

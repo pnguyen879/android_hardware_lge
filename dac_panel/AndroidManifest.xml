@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    SPDX-FileCopyrightText: The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     android:sharedUserId="android.uid.system"
-    package="org.lineageos.settings.device.dac"
-    android:versionCode="6"
-    android:versionName="1.2.0">
+    package="org.lineageos.settings.device.dac">
 
     <uses-permission android:name="android.permission.INJECT_EVENTS"/>
     <uses-permission android:name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS" />
@@ -16,15 +18,16 @@
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true">
 
-
         <activity
             android:name=".QuadDACPanelActivity"
-            android:label="@string/sp_hifi_quad_mode_title"
-            android:exported="true">
+            android:exported="true"
+            android:label="@string/sp_hifi_quad_mode_title">
+
             <intent-filter>
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
 		        <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/>
             </intent-filter>
+
             <meta-data
                 android:name="com.android.settings.icon"
                 android:resource="@drawable/ic_dac" />
@@ -55,6 +58,7 @@
             android:grantUriPermissions="true"
             android:permission="android.permission.READ_SEARCH_INDEXABLES"
             android:exported="true">
+            
             <intent-filter>
                 <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER" />
             </intent-filter>

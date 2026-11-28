@@ -38,15 +38,12 @@ class QuadDACPanelFragment : SettingsBasePreferenceFragment(), OnPreferenceChang
     private lateinit var balance_preference: BalancePreference
     private lateinit var avc_volume: SliderPreference
 
-    /** * Custom filter UI props ** */
-
-    /* Shape and symmetry selectors */
+    // Custom-filter controls.
     private lateinit var custom_filter_shape: ListPreference
     private lateinit var custom_filter_symmetry: ListPreference
     private lateinit var custom_filter_settings_category: PreferenceCategory
     private lateinit var custom_filter_coeffs_category: PreferenceCategory
 
-    /* Button to reset custom filter's coefficients, if needed. */
     private lateinit var custom_filter_reset_coeffs_button: ButtonPreference
 
     private lateinit var headsetPluggedFragmentReceiver: HeadsetPluggedFragmentReceiver
@@ -93,7 +90,7 @@ class QuadDACPanelFragment : SettingsBasePreferenceFragment(), OnPreferenceChang
                     DacControlInterface.setDigitalFilter(digital_filter)
                     updateDigitalFilterSummary(digital_filter)
 
-                    /* Custom filter panel should only show up with Filter [3] (fourth one) selected */
+                    // Digital-filter index 3 selects the custom filter.
                     if (
                         DacControlInterface.getSupportedFeatures().contains(Feature.CustomFilter) &&
                             digital_filter == 3
@@ -135,7 +132,6 @@ class QuadDACPanelFragment : SettingsBasePreferenceFragment(), OnPreferenceChang
                         return false
                     }
                 } else {
-                    /* This assumes the only other seekbars are for the custom filter. Extend as needed. */
                     for (i in 0 until 14) {
                         if (preference.key == Constants.CUSTOM_FILTER_COEFF_KEYS[i]) {
                             if (newValue is Int) {
@@ -169,7 +165,6 @@ class QuadDACPanelFragment : SettingsBasePreferenceFragment(), OnPreferenceChang
 
     override fun addPreferencesFromResource(preferencesResId: Int) {
         super.addPreferencesFromResource(preferencesResId)
-        // Initialize preferences
         val am = requireContext().getSystemService(AudioManager::class.java)
 
         quaddac_switch = findPreference<SwitchPreferenceCompat>(Constants.DAC_SWITCH_KEY)!!
@@ -321,7 +316,7 @@ class QuadDACPanelFragment : SettingsBasePreferenceFragment(), OnPreferenceChang
         custom_filter_reset_coeffs_button.isEnabled = true
 
         try {
-            /* To apply the custom filter's settings */
+            // Reapplying the shape loads stored coefficients into the active filter.
             DacControlInterface.setCustomFilterShape(DacControlInterface.getCustomFilterShape())
         } catch (e: Exception) {}
     }
@@ -336,11 +331,6 @@ class QuadDACPanelFragment : SettingsBasePreferenceFragment(), OnPreferenceChang
     }
 
     private fun checkCustomFilterVisibility() {
-        /*
-         * If the selected digital filter is the custom filter,
-         * its preferences should be visible. Otherwise, hide them
-         * to remove unused preferences from the panel.
-         */
         try {
             val showCustomFilter =
                 DacControlInterface.getSupportedFeatures().contains(Feature.CustomFilter) &&
@@ -365,11 +355,11 @@ class QuadDACPanelFragment : SettingsBasePreferenceFragment(), OnPreferenceChang
             if (intent.action == Intent.ACTION_HEADSET_PLUG) {
                 val state = intent.getIntExtra("state", -1)
                 when (state) {
-                    1 -> { // Headset plugged in
+                    1 -> {
                         quaddac_switch.isEnabled = true
                         if (quaddac_switch.isChecked) enableExtraSettings()
                     }
-                    0 -> { // Headset unplugged
+                    0 -> {
                         quaddac_switch.isEnabled = false
                         disableExtraSettings()
                     }
@@ -386,7 +376,7 @@ class QuadDACPanelFragment : SettingsBasePreferenceFragment(), OnPreferenceChang
     companion object {
         private const val TAG = "QuadDACPanelFragment"
 
-        /* Filter stage 2 coefficients (refer to the kernel's es9218.c for more info) */
+        // Coefficient order must match the ES9218 kernel interface.
         private val custom_filter_coeffs = arrayOfNulls<SliderPreference>(14)
 
         fun setCoeffSummary(context: Context, index: Int, value: Int) {
